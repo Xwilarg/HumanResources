@@ -2853,6 +2853,13 @@ MonoBehaviour:
   _name: {fileID: 1122488162}
   _country: {fileID: 1241307800}
   _id: {fileID: 1447591543}
+  _race: {fileID: 1724501319}
+  _datePlaceBirth: {fileID: 1757705441}
+  _sexe: {fileID: 443935547}
+  _height: {fileID: 298231878}
+  _weight: {fileID: 2005319085}
+  _issuing: {fileID: 1894813340}
+  _expiry: {fileID: 98092617}
 --- !u!114 &1854405308
 MonoBehaviour:
   m_ObjectHideFlags: 0
