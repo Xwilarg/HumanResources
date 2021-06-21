@@ -1,5 +1,4 @@
 ﻿using HumanResources.Character;
-using System.Linq;
 using TMPro;
 
 namespace HumanResources.Document
@@ -14,7 +13,7 @@ namespace HumanResources.Document
             _name.text = character.LastName + " " + character.FirstName;
             _country.text = character.Nationality;
             _id.text = character.IdCardNumber;
-            _race.text = character.Race.ToString()[0] + string.Join("", character.Race.ToString().Skip(1)).ToLowerInvariant();
+            _race.text = character.RaceName;
             _height.text = character.Height.ToString("0.00");
             _weight.text = character.Weight.ToString("0.00");
         }

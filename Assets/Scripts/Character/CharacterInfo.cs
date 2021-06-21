@@ -2,6 +2,7 @@ using HumanResources.Character.Country;
 using HumanResources.Character.ID;
 using HumanResources.Character.Name;
 using HumanResources.Character.Race;
+using HumanResources.Character.Race.RaceImpl;
 using HumanResources.Document;
 using System;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace HumanResources.Character
         public string FirstName { private set; get; }
         public string Nationality { private set; get; }
         public string IdCardNumber { private set; get; }
-        public RaceType Race { private set; get; }
+        public string RaceName { private set; get; }
         public DateTime BirthDate { private set; get; }
         public string BirthPlace { private set; get; }
         public float Height { private set; get; }
@@ -26,16 +27,19 @@ namespace HumanResources.Character
 
         private void Start()
         {
-            LastName = NameGenerator.GetName();
-            FirstName = NameGenerator.GetName();
+            var race = RacialTraitGenerator.GetRace();
+
+            LastName = NameGenerator.GetName(race);
+            FirstName = NameGenerator.GetName(race);
 
             Nationality = CountryName.GetName();
 
             IdCardNumber = IDGenerator.GetID();
 
-            Race = RacialTraitGenerator.GetRace();
-            Height = RacialTraitGenerator.GetHeight(Race);
-            Weight = RacialTraitGenerator.GetWeight(Race);
+            RaceName = race.GetRaceName();
+
+            Height = race.GetHeight();
+            Weight = race.GetWeight();
 
             foreach (var document in _documentHolder.GetComponents<Component>().Where(x => x is IDocument).Cast<IDocument>())
             {
