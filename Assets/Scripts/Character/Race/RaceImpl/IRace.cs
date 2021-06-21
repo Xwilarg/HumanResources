@@ -8,6 +8,7 @@ namespace HumanResources.Character.Race.RaceImpl
         public string GetRaceName();
         public float GetHeight();
         public float GetWeight();
+        public int GetAge();
         public Dictionary<char, LetterInfo> GetLettersInfo();
     }
 }

@@ -21,6 +21,11 @@ namespace HumanResources.Character.Race.RaceImpl
             return Random.Range(60f, 80f);
         }
 
+        public int GetAge()
+        {
+            return Random.Range(20, 35);
+        }
+
         // Based on https://en.wikipedia.org/wiki/Letter_frequency
         public Dictionary<char, LetterInfo> GetLettersInfo()
         {

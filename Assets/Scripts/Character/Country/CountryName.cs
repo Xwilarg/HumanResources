@@ -1,10 +1,21 @@
-﻿namespace HumanResources.Character.Country
+﻿using UnityEngine;
+
+namespace HumanResources.Character.Country
 {
     public static class CountryName
     {
-        public static string GetName()
+        public static string GetCountry()
         {
-            return "Ulneria";
+            return "Ulnera";
+        }
+
+        public static string GetCity()
+        {
+            var city = new[]
+            {
+                "Thradis", "Operia", "Janel"
+            };
+            return city[Random.Range(0, city.Length)];
         }
     }
 }

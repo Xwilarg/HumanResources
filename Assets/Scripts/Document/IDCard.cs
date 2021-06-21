@@ -14,8 +14,12 @@ namespace HumanResources.Document
             _country.text = character.Nationality;
             _id.text = character.IdCardNumber;
             _race.text = character.RaceName;
+            _datePlaceBirth.text = character.BirthDate.ToString("yyyy/MM/dd") + " at " + character.BirthPlace;
+            _sexe.text = character.Sexe.ToString()[0].ToString();
             _height.text = character.Height.ToString("0.00");
             _weight.text = character.Weight.ToString("0.00");
+            _issuing.text = character.IdCardIssuing.ToString("yyyy/MM/dd");
+            _expiry.text = character.IdCardExpiry.ToString("yyyy/MM/dd");
         }
     }
 }
