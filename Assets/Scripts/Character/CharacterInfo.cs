@@ -1,22 +1,35 @@
+using HumanResources.Character.Country;
+using HumanResources.Character.ID;
 using HumanResources.Character.Name;
-using TMPro;
+using HumanResources.Document;
+using System.Linq;
 using UnityEngine;
 
 namespace HumanResources.Character
 {
     public class CharacterInfo : MonoBehaviour
     {
-        [SerializeField]
-        private TMP_Text _name;
+        public string LastName { private set; get; }
+        public string FirstName { private set; get; }
+        public string Nationality { private set; get; }
+        public string IdCardNumber { private set; get; }
 
-        private string _lastName, _firstName;
+        [SerializeField]
+        private GameObject _documentHolder;
 
         private void Start()
         {
-            _lastName = NameGenerator.GetName();
-            _firstName = NameGenerator.GetName();
+            LastName = NameGenerator.GetName();
+            FirstName = NameGenerator.GetName();
 
-            _name.text = _lastName + " " + _firstName;
+            Nationality = CountryName.GetName();
+
+            IdCardNumber = IDGenerator.GetID();
+
+            foreach (var document in _documentHolder.GetComponents<Component>().Where(x => x is IDocument).Cast<IDocument>())
+            {
+                document.LoadCharacterInfo(this);
+            }
         }
     }
 }
